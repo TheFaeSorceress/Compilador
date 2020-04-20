@@ -54,7 +54,7 @@ public class AppCompilador extends JFrame implements ActionListener{
 	}
 	
 	public AppCompilador() {
-		super("Analizador Lexico y Sint·ctico");
+		super("Analizador Lexico y Sint√°ctico");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		setLayout(new GridLayout(2,2));
@@ -70,8 +70,6 @@ public class AppCompilador extends JFrame implements ActionListener{
 		setJMenuBar(barraMenu);
 		menuArchivo = new JMenu("Archivo");
 		menuArchivo.setIcon(new ImageIcon("archivo.png"));
-		//MenuAnalisis =  new JMenu("Analisis");
-		//MenuAnalisis.setIcon(new ImageIcon("analisis.png"));
 		ventanaArchivos = new JFileChooser();
 		itemNuevo = new JMenuItem("Nuevo");
 		itemAbrir = new JMenuItem("Abrir...");
@@ -94,9 +92,7 @@ public class AppCompilador extends JFrame implements ActionListener{
 		menuArchivo.add(itemGuardar);
 		menuArchivo.addSeparator();
 		menuArchivo.add(itemSalir);
-		//MenuAnalisis.add(itemAnalisLexico);
 		barraMenu.add(menuArchivo);
-		//barraMenu.add(MenuAnalisis);
 		areaTexto = new JTextArea();
 		
 	
@@ -120,7 +116,6 @@ public class AppCompilador extends JFrame implements ActionListener{
 		add(documentos);
 		lista_tokens=new JList<String>();
 		consola.addTab("Consola",new JScrollPane(lista_tokens));
-		//consola.addTab("Tabla",new JScrollPane(mitabla));
 		tabla_simbolos.addTab("Tabla de simbolos",new JScrollPane(mitabla) );
 		add(consola);
 		consola.setToolTipText("Aqui se muestra el resultado del analisis");
@@ -135,11 +130,7 @@ public class AppCompilador extends JFrame implements ActionListener{
 			if(guardar()){
 				Analisis analisador = new Analisis(archivo.getAbsolutePath());
 				lista_tokens.setListData(analisador.getmistokens().toArray( new String [0]));
-//				codigo.setListData(analisador.getTabla3().toArray( new String [0] ));
 				modelo = new DefaultTableModel(new Object[0][0],titulos);
-//				modelo2 = new DefaultTableModel(new Object[0][0],titulos2);
-
-//			    mitabla.setDefaultRenderer(Object.class, color);
 			  
 				for (int i=0; i < analisador.getTabla().size(); i++) {
 					TablaDeSimbolos id = analisador.getTabla().get(i);						
